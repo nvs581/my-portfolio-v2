@@ -30,7 +30,7 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col">
         {children}
-        <Script src="/main.js" strategy="lazyOnload" />
+        <Script src="/my-portfolio-v2/main.js" strategy="lazyOnload" />
       </body>
     </html>
   );
