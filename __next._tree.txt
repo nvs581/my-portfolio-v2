@@ -16,4 +16,4 @@
 :HL["assets/images/certificates/CertificateOfCompletion_Computer Science Principles Digital Information-1.jpg","image"]
 :HL["assets/images/certificates/CertificateOfCompletion_HTML Essential Training 2020.webp","image"]
 :HL["assets/images/certificates/CertificateOfCompletion_Introduction to Web Design and Development.webp","image"]
-0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}},"staleTime":300,"buildId":"WphjDgNowQ9JgOiMIXYoy"}
+0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}},"staleTime":300,"buildId":"T9fLR_SYxI805GAthJ-zT"}
