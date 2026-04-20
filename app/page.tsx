@@ -11,16 +11,16 @@ async function getPortfolioData() {
       body: JSON.stringify({
         query: `
           {
-            projects: posts(where: { categoryName: "Projects" }) {
+            projects: posts(where: { categoryName: "Projects" }, first: 100) {
               nodes { id title content featuredImage { node { sourceUrl } } }
             }
-            certifications: posts(where: { categoryName: "Certifications" }) {
+            certifications: posts(where: { categoryName: "Certifications" }, first: 100) {
               nodes { id title content featuredImage { node { sourceUrl } } }
             }
-            experiences: posts(where: { categoryName: "Experience" }) {
+            experiences: posts(where: { categoryName: "Experience" }, first: 100) {
               nodes { id title content }
             }
-            skills: posts(where: { categoryName: "Skills" }, first: 50) {
+            skills: posts(where: { categoryName: "Skills" }, first: 100) {
               nodes { id title }
             }
           }
