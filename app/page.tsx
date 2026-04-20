@@ -73,22 +73,24 @@ const FALLBACK_SKILLS = [
 
 export default async function Home() {
   const wpData = await getPortfolioData();
+  const placeholderImage = "https://placehold.co/600x400/1a1a1a/ededed?text=Image+Coming+Soon";
+
   const projects = (wpData.projects.length > 0 ? wpData.projects : PORTFOLIO_DATA.projects).map((p: any) => {
     let img = p.featuredImage?.node?.sourceUrl || p.image || "";
     if (img.includes(".local")) {
       const fallback = PORTFOLIO_DATA.projects.find((fp: any) => fp.title === p.title);
-      if (fallback) img = fallback.image;
+      img = fallback?.image || placeholderImage;
     }
-    return { ...p, processedImage: img };
+    return { ...p, processedImage: img || placeholderImage };
   });
   
   const certifications = (wpData.certifications.length > 0 ? wpData.certifications : PORTFOLIO_DATA.certifications).map((c: any) => {
     let img = c.featuredImage?.node?.sourceUrl || c.image || "";
     if (img.includes(".local")) {
       const fallback = PORTFOLIO_DATA.certifications.find((fc: any) => fc.title === c.title);
-      if (fallback) img = fallback.image;
+      img = fallback?.image || placeholderImage;
     }
-    return { ...c, processedImage: img };
+    return { ...c, processedImage: img || placeholderImage };
   });
   const experiences = wpData.experiences.length > 0 ? wpData.experiences : FALLBACK_EXPERIENCES;
   const skills = wpData.skills.length > 0 ? wpData.skills : FALLBACK_SKILLS;
