@@ -73,8 +73,23 @@ const FALLBACK_SKILLS = [
 
 export default async function Home() {
   const wpData = await getPortfolioData();
-  const projects = wpData.projects.length > 0 ? wpData.projects : PORTFOLIO_DATA.projects;
-  const certifications = wpData.certifications.length > 0 ? wpData.certifications : PORTFOLIO_DATA.certifications;
+  const projects = (wpData.projects.length > 0 ? wpData.projects : PORTFOLIO_DATA.projects).map((p: any) => {
+    let img = p.featuredImage?.node?.sourceUrl || p.image || "";
+    if (img.includes(".local")) {
+      const fallback = PORTFOLIO_DATA.projects.find((fp: any) => fp.title === p.title);
+      if (fallback) img = fallback.image;
+    }
+    return { ...p, processedImage: img };
+  });
+  
+  const certifications = (wpData.certifications.length > 0 ? wpData.certifications : PORTFOLIO_DATA.certifications).map((c: any) => {
+    let img = c.featuredImage?.node?.sourceUrl || c.image || "";
+    if (img.includes(".local")) {
+      const fallback = PORTFOLIO_DATA.certifications.find((fc: any) => fc.title === c.title);
+      if (fallback) img = fallback.image;
+    }
+    return { ...c, processedImage: img };
+  });
   const experiences = wpData.experiences.length > 0 ? wpData.experiences : FALLBACK_EXPERIENCES;
   const skills = wpData.skills.length > 0 ? wpData.skills : FALLBACK_SKILLS;
   return (
@@ -221,7 +236,7 @@ export default async function Home() {
                 <div className="carousel-container" id="work-carousel">
                   {projects.map((project: any, index: number) => {
                     const desc = project.content || project.description;
-                    const img = project.featuredImage?.node?.sourceUrl || project.image || "";
+                    const img = project.processedImage || project.featuredImage?.node?.sourceUrl || project.image || "";
                     
                     return (
                       <article
@@ -293,7 +308,7 @@ export default async function Home() {
                 <div className="carousel-container" id="certs-carousel">
                   {certifications.map((cert: any, index: number) => {
                     const desc = cert.content || cert.description || "Details for this item will be available soon.";
-                    const img = cert.featuredImage?.node?.sourceUrl || cert.image || "";
+                    const img = cert.processedImage || cert.featuredImage?.node?.sourceUrl || cert.image || "";
                     
                     return (
                       <article key={index} className="carousel-slide">
