@@ -11,4 +11,4 @@
 :HL["http://headless-portfolio-api.local/wp-content/uploads/2026/04/CertificateOfCompletion_Generative-AI-and-Large-Language-Models-on-AWS-1.jpg","image"]
 :HL["http://headless-portfolio-api.local/wp-content/uploads/2026/04/CertificateOfCompletion_Machine-Learning-with-Python-Foundations-1.jpg","image"]
 :HL["http://headless-portfolio-api.local/wp-content/uploads/2026/04/CertificateOfCompletion_Advance-Your-Skills-as-an-IT-Help-Desk-Specialist-1.jpg","image"]
-0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}},"staleTime":300,"buildId":"4M1UW12WJbA7sV55iuiXL"}
+0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}},"staleTime":300,"buildId":"xLAWo2eqYGdlHed7PyAP8"}
